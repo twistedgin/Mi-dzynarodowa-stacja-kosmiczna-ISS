@@ -1,26 +1,51 @@
 package database.entity;
 
-import lombok.Data;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-
-import java.util.Collections;
+import javax.persistence.Entity;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
-@Data
+@Entity
+@Table(name = "ISS_LOCATION")
 public class IssLocation  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private double longitude;
     private double latitude;
-
-  /*  OkHttpClient client = new OkHttpClient();
-
-    Request request = new Request.Builder()
-            .url("http://api.open-notify.org/iss-now")
-            .build();
-*/
-   /* JsonReaderFactory readerFactory = Json.createReaderFactory(Collections.emptyMap());
-    JsonReader jsonReader = readerFactory.createReader(inputStream);
-*/
+    private Long id;
+    private LocalDateTime date;
 
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 }

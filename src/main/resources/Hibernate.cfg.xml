@@ -17,6 +17,9 @@
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
         <mapping class="database.entity.IssLocation" />
+        <mapping class="database.entity.PeopleInSpace" />
+        <mapping class="database.entity.UpcomingEvent" />
+        <mapping class="database.entity.UserLocation" />
         <!--<mapping class="database.entity. ***"  PROSZE UZUPELNIC O WSZYSTKIE KLASY W ENTITY/>
         <mapping class="database.entity. ***" />-->
     </session-factory>

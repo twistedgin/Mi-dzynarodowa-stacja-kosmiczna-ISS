@@ -39,7 +39,9 @@ public class UserLocationDaoImpl implements UserLocationDao {
                     .createQuery("from UserLocation where id=:id", UserLocation.class)
                     .setParameter("id", id)
                     .getSingleResult();
-        } catch (NoResultException e) {}
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
 
         session.getTransaction().commit();
         session.close();
@@ -63,7 +65,9 @@ public class UserLocationDaoImpl implements UserLocationDao {
                     .createQuery("from UserLocation", UserLocation.class)
                     .list();
 
-        } catch (NoResultException e) {}
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
 
         session.getTransaction().commit();
         session.close();

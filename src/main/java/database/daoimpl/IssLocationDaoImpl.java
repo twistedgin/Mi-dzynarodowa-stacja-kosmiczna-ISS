@@ -36,7 +36,9 @@ public class IssLocationDaoImpl {
                         .createQuery("from IssLocation where id=:id", IssLocation.class)
                         .setParameter("id", id)
                         .getSingleResult();
-            } catch (NoResultException e) {}
+            } catch (NoResultException e) {
+                e.printStackTrace();
+            }
 
             session.getTransaction().commit();
             session.close();
@@ -59,7 +61,10 @@ public class IssLocationDaoImpl {
                         .createQuery("from IssLocation", IssLocation.class)
                         .list();
 
-            } catch (NoResultException e) {}
+            } catch (NoResultException e) {
+                e.printStackTrace();
+
+            }
 
             session.getTransaction().commit();
             session.close();

@@ -2,13 +2,21 @@ package main;
 
 import database.entity.IssLocation;
 import database.utils.HibernateUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import static api.JsonReader.readJsonFromUrl;
 
 public class Main {
 
-    public static void main(String[] args) {
-        HibernateUtils
+    public static void main(String[] args)  throws IOException, JSONException {
+            JSONObject json = readJsonFromUrl("http://api.open-notify.org/astros.json");
+
+
+            HibernateUtils
                 .getInstance()
                 .getSessionFactory()
                 .close();
@@ -25,10 +33,16 @@ public class Main {
             case "b":
                 IssLocation location = new IssLocation();
                 System.out.println(location);
-                System.out.println("Lista: ");
+
                 break;
             case "c":
-                System.out.println("W kosmosie przebywa  " + " osob");
+
+                System.out.println("W kosmosie przebywa " +json.get("number")+ " osob.") ;
+
+/*
+                System.out.println(json.toString()); do zedytowania lista zalogi
+*/
+
                 break;
             default:
                 System.out.println("Zły wybor");

@@ -38,7 +38,10 @@ public class PeopleInSpaceDaoImpl implements PeopleInSpaceDao {
                     .createQuery("from PeopleInSpace where id=:id", PeopleInSpace.class)
                     .setParameter("id", id)
                     .getSingleResult();
-        } catch (NoResultException e) {}
+        } catch (NoResultException e) {
+            e.printStackTrace();
+
+        }
 
         session.getTransaction().commit();
         session.close();
@@ -62,7 +65,9 @@ public class PeopleInSpaceDaoImpl implements PeopleInSpaceDao {
                     .createQuery("from PeopleInSpace", PeopleInSpace.class)
                     .list();
 
-        } catch (NoResultException e) {}
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
 
         session.getTransaction().commit();
         session.close();

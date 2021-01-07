@@ -39,7 +39,9 @@ public class UpcomingEventDaoImpl implements UpcomingEventDao {
                     .createQuery("from UpcomingEvent where id=:id", UpcomingEvent.class)
                     .setParameter("id", id)
                     .getSingleResult();
-        } catch (NoResultException e) {}
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
 
         session.getTransaction().commit();
         session.close();
@@ -63,7 +65,10 @@ public class UpcomingEventDaoImpl implements UpcomingEventDao {
                     .createQuery("from UpcomingEvent", UpcomingEvent.class)
                     .list();
 
-        } catch (NoResultException e) {}
+        } catch (NoResultException e) {
+            e.printStackTrace();
+
+        }
 
         session.getTransaction().commit();
         session.close();
